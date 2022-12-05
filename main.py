@@ -3,7 +3,17 @@ import tkinter
 
 # creating calc frame
 def iCalc(source, side):
-    storeObj = tkinter.Frame()
+    storeObj = tkinter.Frame(source, borderwidth=4, bd=4, bg="powder blue")
+    storeObj.pack(side=side, expand=True, fill=tkinter.BOTH)
+
+    return storeObj
+
+
+def button(source, side, text, command=None):
+    storeObj = tkinter.Button(source, text=text, command=command)
+    storeObj.pack(side=side, expand=True, fill=tkinter.BOTH)
+
+    return storeObj
 
 
 class App(tkinter.Frame):
