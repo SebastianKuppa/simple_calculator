@@ -24,11 +24,17 @@ class App(tkinter.Frame):
         self.pack(expand=True, fill=tkinter.BOTH)
         self.master.title('Calculator')
 
+        # adding display widget to frame
         display = tkinter.StringVar()
         tkinter.Entry(self, relief=tkinter.RIDGE, textvariable=display,
                       justify='right', bd=30, bg='powder blue').pack(side=tkinter.TOP,
                                                                      expand=tkinter.YES,
                                                                      fill=tkinter.BOTH)
+        for clearButton in (["C"]):
+            erase = iCalc(self, tkinter.TOP)
+            for ichar in clearButton:
+                button(erase, tkinter.LEFT, ichar,
+                       lambda storeObj=display, q=ichar: storeObj.set(''))
 
 
 if __name__ == '__main__':
