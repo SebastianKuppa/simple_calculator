@@ -36,6 +36,13 @@ class App(tkinter.Frame):
                 button(erase, tkinter.LEFT, ichar,
                        lambda storeObj=display, q=ichar: storeObj.set(''))
 
+        for numButton in ("789/", '456*', '123-', '0.+'):
+            functionNum = iCalc(self, tkinter.TOP)
+            for iEquals in numButton:
+                button(functionNum, tkinter.LEFT, iEquals, lambda
+                    storeObj=display, q=iEquals: storeObj
+                       .set(storeObj.get() + q))
+
 
 if __name__ == '__main__':
     App().mainloop()
