@@ -9,6 +9,7 @@ def iCalc(source, side):
     return storeObj
 
 
+# creating button object
 def button(source, side, text, command=None):
     storeObj = tkinter.Button(source, text=text, command=command)
     storeObj.pack(side=side, expand=True, fill=tkinter.BOTH)
@@ -22,6 +23,12 @@ class App(tkinter.Frame):
         self.option_add('*Font', 'arial 20 bold')
         self.pack(expand=True, fill=tkinter.BOTH)
         self.master.title('Calculator')
+
+        display = tkinter.StringVar()
+        tkinter.Entry(self, relief=tkinter.RIDGE, textvariable=display,
+                      justify='right', bd=30, bg='powder blue').pack(side=tkinter.TOP,
+                                                                     expand=tkinter.YES,
+                                                                     fill=tkinter.BOTH)
 
 
 if __name__ == '__main__':
