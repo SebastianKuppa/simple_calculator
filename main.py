@@ -53,8 +53,11 @@ class App(tkinter.Frame):
                 btniEquals = button(equalButton, tkinter.LEFT, iEquals,
                                     lambda storeObj=display, s=' %s ' % iEquals: storeObj.set(storeObj.get() + s))
 
-    def calc(self):
-
+    def calc(self, display):
+        try:
+            display.set(eval(display.get()))
+        except:
+            display.set("ERROR")
 
 
 if __name__ == '__main__':
