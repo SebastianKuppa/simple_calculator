@@ -43,6 +43,19 @@ class App(tkinter.Frame):
                     storeObj=display, q=iEquals: storeObj
                        .set(storeObj.get() + q))
 
+        equalButton = iCalc(self, tkinter.TOP)
+        for iEquals in "=":
+            if iEquals == "=":
+                btniEquals = button(equalButton, tkinter.LEFT, iEquals)
+                btniEquals.bind("<ButtonRelease-1>", lambda e, s=self,
+                                                            storeObj=display: s.calc(storeObj), '+')
+            else:
+                btniEquals = button(equalButton, tkinter.LEFT, iEquals,
+                                    lambda storeObj=display, s=' %s ' % iEquals: storeObj.set(storeObj.get() + s))
+
+    def calc(self):
+
+
 
 if __name__ == '__main__':
     App().mainloop()
